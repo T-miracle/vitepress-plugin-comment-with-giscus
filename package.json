@@ -5,9 +5,9 @@
     "workspaces": [
         "packages/*"
     ],
-    "main": "dist/giscus.js",
-    "module": "dist/giscus.js",
-    "types": "dist/giscus.d.ts",
+    "main": "./dist/giscus.js",
+    "module": "./dist/giscus.js",
+    "types": "./dist/giscus.d.ts",
     "exports": {
         ".": {
             "require": "./dist/giscus.js",
