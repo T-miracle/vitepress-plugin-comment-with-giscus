@@ -7,19 +7,9 @@
     ],
     "main": "./dist/giscus.js",
     "types": "./dist/giscus.d.ts",
-    "exports": {
-        ".": {
-            "require": "./dist/giscus.js",
-            "import": "./dist/giscus.mjs"
-        }
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
     "files": [
         "dist",
-        "src",
-        "README_zh.md"
+        "src"
     ],
     "repository": {
         "type": "git",
