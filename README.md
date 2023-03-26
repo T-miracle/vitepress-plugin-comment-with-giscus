@@ -23,7 +23,7 @@ yarn add vitepress-plugin-comment-with-giscus
 // .vitepress/theme/index.js
 import DefaultTheme from 'vitepress/theme';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
-import { useData } from 'vitepress';
+import { useData, useRoute } from 'vitepress';
 export default {
     ...DefaultTheme,
     enhanceApp(ctx) {
@@ -31,14 +31,17 @@ export default {
         // ...
     },
     setup() {
-        // Get frontmatter
+        // Get frontmatter and route
         const { frontmatter } = useData();
+        const route = useRoute();
         // Comment component
-        giscusTalk(frontmatter, {
+        giscusTalk({
             repo: 'your github repository',
             repoId: 'your repository id',
             categoryId: 'your category id',
             mapping: 'pathname'
+        }, {
+            frontmatter, route
         });
     }
 };

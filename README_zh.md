@@ -21,7 +21,7 @@ yarn add vitepress-plugin-comment-with-giscus
 // .vitepress/theme/index.js
 import DefaultTheme from 'vitepress/theme';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
-import { useData } from 'vitepress';
+import { useData, useRoute } from 'vitepress';
 export default {
     ...DefaultTheme,
     enhanceApp(ctx) {
@@ -29,14 +29,17 @@ export default {
         // ...
     },
     setup() {
-        // 获取前言
+        // 获取前言和路由
         const { frontmatter } = useData();
+        const route = useRoute();
         // 评论组件
-        giscusTalk(frontmatter, {
+        giscusTalk({
             repo: '你的github仓库',
             repoId: '你的仓库id',
             categoryId: '你的分类id',
             mapping: 'pathname'
+        }, {
+            frontmatter, route
         });
     }
 };
