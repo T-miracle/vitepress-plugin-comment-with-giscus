@@ -19,6 +19,8 @@ yarn add vitepress-plugin-comment-with-giscus
 
 ```ts
 // .vitepress/theme/index.js
+import DefaultTheme from 'vitepress/theme';
+import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 export default {
     ...DefaultTheme,
     enhanceApp(ctx) {
