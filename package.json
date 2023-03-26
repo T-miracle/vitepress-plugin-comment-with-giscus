@@ -1,35 +1,51 @@
 {
-  "name": "vitepress-plugin-comment-with-giscus",
-  "version": "1.0.0",
-  "description": "vitepress comment plugin based on giscus",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/T-miracle/vitepress-plugin-comment-with-giscus.git"
-  },
-  "keywords": [
-    "giscus",
-    "comment",
-    "discuss",
-    "vitepress"
-  ],
-  "author": "Tmiracle",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/T-miracle/vitepress-plugin-comment-with-giscus/issues"
-  },
-  "homepage": "https://github.com/T-miracle/vitepress-plugin-comment-with-giscus#readme",
-  "devDependencies": {
-    "@babel/types": "^7.21.3",
-    "@types/node": "^18.15.10",
-    "typescript": "^5.0.2"
-  },
-  "dependencies": {
-    "@giscus/vue": "^2.2.8",
-    "vitepress": "^1.0.0-alpha.62",
-    "vue": "^3.2.47"
-  }
+    "name": "vitepress-plugin-comment-with-giscus",
+    "version": "1.0.0",
+    "description": "vitepress comment plugin based on giscus",
+    "workspaces": [
+        "packages/*"
+    ],
+    "main": "dist/giscus.js",
+    "module": "dist/giscus.js",
+    "types": "dist/giscus.d.ts",
+    "exports": {
+        ".": {
+            "require": "./dist/giscus.js",
+            "import": "./dist/giscus.mjs"
+        }
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "files": [
+        "dist",
+        "src"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/T-miracle/vitepress-plugin-comment-with-giscus.git"
+    },
+    "keywords": [
+        "giscus",
+        "comment",
+        "discuss",
+        "vitepress"
+    ],
+    "author": "Tmiracle",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/T-miracle/vitepress-plugin-comment-with-giscus/issues"
+    },
+    "homepage": "https://github.com/T-miracle/vitepress-plugin-comment-with-giscus#readme",
+    "devDependencies": {
+        "@babel/types": "^7.21.3",
+        "@types/node": "^18.15.10",
+        "@vitejs/plugin-vue": "^4.1.0",
+        "typescript": "^5.0.2",
+        "vite": "^4.2.1",
+        "vue-tsc": "^1.2.0",
+        "@giscus/vue": "^2.2.8",
+        "vitepress": "^1.0.0-alpha.62",
+        "vue": "^3.2.47"
+    }
 }

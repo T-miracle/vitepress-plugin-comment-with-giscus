@@ -1,23 +1,33 @@
 {
     "compilerOptions": {
-        "target": "ES2015",
+        "target": "ESNext",
         "useDefineForClassFields": true,
-        "module": "CommonJS",
+        "jsx": "preserve",
+        "module": "ESNext",
         "strict": true,
         "esModuleInterop": true,
+        "moduleResolution": "node",
         "lib": [
             "ESNext",
             "DOM"
         ],
+        "noImplicitAny": true,
         "skipLibCheck": true,
-        "composite": true,
         "declaration": true,
+        "incremental": false,
+        "emitDeclarationOnly": false,
+        "outDir": "dist",
         "declarationDir": "dist"
     },
     "include": [
-        "lib/*.ts"
+        "src/*.ts"
     ],
     "exclude": [
         "node_modules"
+    ],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
     ]
 }
