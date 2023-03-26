@@ -1,0 +1,25 @@
+{
+  "name": "vitepress-plugin-comment-with-giscus",
+  "version": "1.0.0",
+  "description": "vitepress comment plugin based on giscus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/T-miracle/vitepress-plugin-comment-with-giscus.git"
+  },
+  "keywords": [
+    "giscus",
+    "comment",
+    "discuss",
+    "vitepress"
+  ],
+  "author": "Tmiracle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/T-miracle/vitepress-plugin-comment-with-giscus/issues"
+  },
+  "homepage": "https://github.com/T-miracle/vitepress-plugin-comment-with-giscus#readme"
+}
