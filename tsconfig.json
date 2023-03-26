@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "ES2015",
+        "useDefineForClassFields": true,
+        "module": "CommonJS",
+        "strict": true,
+        "esModuleInterop": true,
+        "lib": [
+            "ESNext",
+            "DOM"
+        ],
+        "skipLibCheck": true,
+        "composite": true,
+        "declaration": true,
+        "declarationDir": "dist"
+    },
+    "include": [
+        "lib/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
