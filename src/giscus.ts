@@ -1,7 +1,12 @@
 import giscus from '@giscus/vue';
 import { Component, createApp, h, nextTick, onMounted, Ref, watch } from 'vue';
-import { PageData, useRoute } from 'vitepress';
+import { PageData, Route } from 'vitepress';
 import { GiscusProps } from '@giscus/vue/dist/types';
+
+type vitepressAPI = {
+    frontmatter: Ref<PageData['frontmatter']>,
+    route: Route
+}
 
 /**
  * 添加评论容器
@@ -77,14 +82,18 @@ const setThemeWatch = () => {
     });
 };
 
-const giscusTalk = (frontmatter: Ref<PageData['frontmatter']>, props: GiscusProps) => {
-    const route = useRoute();
+/**
+ * 创建评论区
+ * @param props giscus配置
+ * @param vitepressObj 前言和路由
+ */
+const giscusTalk = (props: GiscusProps, vitepressObj: vitepressAPI) => {
     onMounted(() => {
-        setGiscus(props, frontmatter);
+        setGiscus(props, vitepressObj.frontmatter);
         setThemeWatch();
     });
-    watch(() => route.path, () => nextTick(() => {
-        setGiscus(props, frontmatter);
+    watch(() => vitepressObj.route.path, () => nextTick(() => {
+        setGiscus(props, vitepressObj.frontmatter);
     }));
 };
 
