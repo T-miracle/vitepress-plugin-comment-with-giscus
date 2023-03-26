@@ -21,6 +21,7 @@ yarn add vitepress-plugin-comment-with-giscus
 // .vitepress/theme/index.js
 import DefaultTheme from 'vitepress/theme';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
+import { useData } from 'vitepress';
 export default {
     ...DefaultTheme,
     enhanceApp(ctx) {
@@ -43,4 +44,12 @@ export default {
 
 `giscus` 的参数获取方式请看：[giscus配置获取](https://giscus.app/)
 
+## 扩展使用
 
+如果文章前言添加以下代码，则不会生成评论区
+
+```md
+---
+comment: false
+---
+```

@@ -23,6 +23,7 @@ yarn add vitepress-plugin-comment-with-giscus
 // .vitepress/theme/index.js
 import DefaultTheme from 'vitepress/theme';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
+import { useData } from 'vitepress';
 export default {
     ...DefaultTheme,
     enhanceApp(ctx) {
@@ -45,4 +46,12 @@ export default {
 
 For the parameter acquisition method of `giscus`, please refer to：[giscus configuration](https://giscus.app/)
 
+## Extended
 
+If the following code is added to the preface of the article, the comment area will not be generated
+
+```md
+---
+comment: false
+---
+```
