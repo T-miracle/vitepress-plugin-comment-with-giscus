@@ -19,7 +19,8 @@
     },
     "files": [
         "dist",
-        "src"
+        "src",
+        "README_zh.md"
     ],
     "repository": {
         "type": "git",
