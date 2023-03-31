@@ -10,9 +10,9 @@
 
 ```shell
 // npm
-npm i vitepress-plugin-comment-with-giscus
+npm i vitepress-plugin-comment-with-giscus @giscus/vue
 // yarn
-yarn add vitepress-plugin-comment-with-giscus
+yarn add vitepress-plugin-comment-with-giscus @giscus/vue
 ```
 
 ## 用法
@@ -32,12 +32,15 @@ export default {
         // 获取前言和路由
         const { frontmatter } = useData();
         const route = useRoute();
-        // 评论组件
+        
+        // 评论组件 - https://giscus.app/
         giscusTalk({
             repo: '你的github仓库',
             repoId: '你的仓库id',
             categoryId: '你的分类id',
-            mapping: 'pathname'
+            mapping: 'pathname',
+            lang: 'zh-CN',
+            reactionsEnabled: '1',
         }, {
             frontmatter, route
         });
