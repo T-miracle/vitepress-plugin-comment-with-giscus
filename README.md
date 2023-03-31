@@ -12,9 +12,9 @@ EN | [中文文档](README_zh.md)
 
 ```shell
 // npm
-npm i vitepress-plugin-comment-with-giscus
+npm i vitepress-plugin-comment-with-giscus @giscus/vue
 // yarn
-yarn add vitepress-plugin-comment-with-giscus
+yarn add vitepress-plugin-comment-with-giscus @giscus/vue
 ```
 
 ## Usage
@@ -24,6 +24,7 @@ yarn add vitepress-plugin-comment-with-giscus
 import DefaultTheme from 'vitepress/theme';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import { useData, useRoute } from 'vitepress';
+
 export default {
     ...DefaultTheme,
     enhanceApp(ctx) {
@@ -34,12 +35,15 @@ export default {
         // Get frontmatter and route
         const { frontmatter } = useData();
         const route = useRoute();
-        // Comment component
+        
+        // Obtain configuration from: https://giscus.app/
         giscusTalk({
             repo: 'your github repository',
             repoId: 'your repository id',
             categoryId: 'your category id',
-            mapping: 'pathname'
+            mapping: 'pathname',
+            reactionsEnabled: '1',
+            lang: 'en'
         }, {
             frontmatter, route
         });
