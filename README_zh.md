@@ -40,7 +40,6 @@ export default {
             category: '你选择的分类', // 默认: `General`
             categoryId: '你的分类id',
             mapping: 'pathname', // 默认: `pathname`
-            reactionsEnabled: '1', // 默认: `pathname`
             inputPosition: 'top', // 默认: `top`
             lang: 'zh-CN', // 默认: `zh-CN`
             // ...

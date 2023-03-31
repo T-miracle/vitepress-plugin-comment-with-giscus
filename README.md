@@ -43,7 +43,6 @@ export default {
             category: 'your category', // default: `General`
             categoryId: 'your category id',
             mapping: 'pathname', // default: `pathname`
-            reactionsEnabled: '1', // default: `pathname`
             inputPosition: 'top', // default: `top`
             lang: 'en', // default: `zh-CN`
             // ...
