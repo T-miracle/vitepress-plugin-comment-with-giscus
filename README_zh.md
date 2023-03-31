@@ -35,12 +35,15 @@ export default {
         
         // 评论组件 - https://giscus.app/
         giscusTalk({
-            repo: '你的github仓库',
+            repo: '你的仓库地址',
             repoId: '你的仓库id',
+            category: '你选择的分类', // 默认: `General`
             categoryId: '你的分类id',
-            mapping: 'pathname',
-            lang: 'zh-CN',
-            reactionsEnabled: '1',
+            mapping: 'pathname', // 默认: `pathname`
+            reactionsEnabled: '1', // 默认: `pathname`
+            inputPosition: 'top', // 默认: `top`
+            lang: 'zh-CN', // 默认: `zh-CN`
+            // ...
         }, {
             frontmatter, route
         });
