@@ -1,6 +1,6 @@
 # vitepress-plugin-comment-with-giscus
 
-![npm](https://img.shields.io/npm/v/vitepress-plugin-comment-with-giscus?color=green&style=plastic)
+[![npm](https://img.shields.io/npm/v/vitepress-plugin-comment-with-giscus?color=green&style=flat)](https://www.npmjs.com/package/vitepress-plugin-comment-with-giscus)
 
 EN | [中文文档](README_zh.md)
 
