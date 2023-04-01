@@ -1,6 +1,6 @@
 {
     "name": "vitepress-plugin-comment-with-giscus",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "description": "vitepress comment plugin based on giscus",
     "main": "./lib/giscus.js",
     "types": "./lib/giscus.d.ts",
