@@ -16,18 +16,13 @@
         "declaration": true,
         "incremental": false,
         "emitDeclarationOnly": false,
-        "outDir": "dist",
-        "declarationDir": "dist"
+        "outDir": "./lib",
+        "declarationDir": "./lib"
     },
     "include": [
-        "src/*.ts"
+        "lib/*.ts"
     ],
     "exclude": [
         "node_modules"
-    ],
-    "references": [
-        {
-            "path": "./tsconfig.node.json"
-        }
     ]
 }

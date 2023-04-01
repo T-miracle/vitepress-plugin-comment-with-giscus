@@ -12,9 +12,9 @@ EN | [中文文档](README_zh.md)
 
 ```shell
 // npm
-npm i vitepress-plugin-comment-with-giscus @giscus/vue
+npm i vitepress-plugin-comment-with-giscus
 // yarn
-yarn add vitepress-plugin-comment-with-giscus @giscus/vue
+yarn add vitepress-plugin-comment-with-giscus
 ```
 
 ## Usage

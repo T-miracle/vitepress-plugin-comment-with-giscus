@@ -2,15 +2,11 @@
     "name": "vitepress-plugin-comment-with-giscus",
     "version": "1.1.4",
     "description": "vitepress comment plugin based on giscus",
-    "workspaces": [
-        "packages/*"
-    ],
-    "type": "module",
-    "main": "./dist/giscus.js",
-    "types": "./dist/giscus.d.ts",
+    "main": "./lib/giscus.js",
+    "types": "./lib/giscus.d.ts",
     "files": [
         "dist",
-        "src"
+        "lib"
     ],
     "repository": {
         "type": "git",
@@ -28,6 +24,9 @@
         "url": "https://github.com/T-miracle/vitepress-plugin-comment-with-giscus/issues"
     },
     "homepage": "https://github.com/T-miracle/vitepress-plugin-comment-with-giscus#readme",
+    "dependencies": {
+        "@giscus/vue": "^2.2.8"
+    },
     "devDependencies": {
         "@babel/types": "^7.21.3",
         "@types/node": "^18.15.10",
@@ -35,7 +34,6 @@
         "typescript": "^5.0.2",
         "vite": "^4.2.1",
         "vue-tsc": "^1.2.0",
-        "@giscus/vue": "^2.2.8",
         "vitepress": "^1.0.0-alpha.62",
         "vue": "^3.2.47"
     }
