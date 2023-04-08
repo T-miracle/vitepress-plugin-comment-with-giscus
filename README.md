@@ -64,3 +64,8 @@ If the following code is added to the preface of the article, the comment area w
 comment: false
 ---
 ```
+
+## more vitepress plugins
+
+You may be interested in these plugins：
+[Click me to view more vitepress plugins](https://github.com/T-miracle/vitepress-plugins)
