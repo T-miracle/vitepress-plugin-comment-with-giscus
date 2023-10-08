@@ -46,7 +46,10 @@ export default {
         }, {
             frontmatter, route
         },
-            // 是否全部页面启动评论区，默认启用，此参数可忽略
+            // 是否全部页面启动评论区。
+            // 默认为 true，表示启用，此参数可忽略；
+            // 如果为 false，表示不启用。
+            // 可以在页面使用 `comment: true` 前言单独启用
             true
         );
     }

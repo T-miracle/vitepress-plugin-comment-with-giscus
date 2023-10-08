@@ -49,7 +49,10 @@ export default {
         }, {
             frontmatter, route
         },
-            // Whether to enable the comment area on all pages, enabled by default, this parameter can be ignored
+            // Whether to activate the comment area on all pages.
+            // The default is true, which means enabled, this parameter can be ignored;
+            // If it is false, it means it is not enabled.
+            // You can use `comment: true` preface to enable it separately on the page.
             true
         );
     }
