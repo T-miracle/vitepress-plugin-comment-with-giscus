@@ -48,7 +48,10 @@ export default {
             // ...
         }, {
             frontmatter, route
-        });
+        },
+            // Whether to enable the comment area on all pages, enabled by default, this parameter can be ignored
+            true
+        );
     }
 };
 ```
@@ -57,11 +60,19 @@ For the parameter acquisition method of `giscus`, please refer to：[giscus conf
 
 ## Extended
 
-If the following code is added to the preface of the article, the comment area will not be generated
+When the configuration option enables the comment area by default, add the following code, the comment area will not be generated
 
 ```md
 ---
 comment: false
+---
+```
+
+When the configuration options do not enable the comment area by default, you can still enable the comment area on the current page through the following code
+
+```md
+---
+comment: true
 ---
 ```
 

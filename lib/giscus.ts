@@ -9,11 +9,13 @@ type vitepressAPI = {
 }
 
 /**
- * 添加评论容器
- * @param props 配置
- * @param frontmatter 前言
+ * add comment container
+ * <br>添加评论容器
+ * @param props giscus setting (配置)
+ * @param frontmatter frontmatter (前言)
+ * @param defaultEnable default enable comment area (默认启用评论区)
  */
-const setGiscus = (props: GiscusProps | {} = {}, frontmatter?: Ref<PageData['frontmatter']>) => {
+const setGiscus = (props: GiscusProps | {} = {}, frontmatter?: Ref<PageData['frontmatter']>, defaultEnable: boolean = true) => {
     const defaultProps: GiscusProps = {
         id: 'comment',
         host: 'https://giscus.app',
@@ -27,32 +29,46 @@ const setGiscus = (props: GiscusProps | {} = {}, frontmatter?: Ref<PageData['fro
         repo: 'xxx/xxx',
         repoId: ''
     };
+    // Delete the original comment container
     // 删除原有评论容器
     let oldCommentContainer = document.getElementById('giscus');
     if (oldCommentContainer) {
         oldCommentContainer.parentNode!.removeChild(oldCommentContainer);
     }
-    // 如果 comment 为 false，则不加载评论
-    if (!!frontmatter?.value && (frontmatter?.value.comment !== undefined && !frontmatter?.value.comment)) {
-        return;
+    console.log(frontmatter?.value.comment);
+    if (frontmatter?.value.comment !== undefined) {
+        // If comment is false, comments are not loaded
+        // 如果 comment 为 false，则不加载评论
+        if (!Boolean(frontmatter?.value.comment)) {
+            return;
+        }
+    } else {
+        if (!defaultEnable) {
+            return;
+        }
     }
+    // If it is the homepage, do not add it
     // 如果是首页，则不添加
     if (!location.pathname || location.pathname === '/') {
         return;
     }
     const dark: boolean = !!document.querySelector('html')?.className;
+    // Get the parent container and create a comment container
     // 获取父容器，并创建评论容器
     const docContent = document.getElementsByClassName('content-container')[0];
     if (docContent) {
         const bindGiscus = document.createElement('div');
+        // Set the attribute and style of the comment container
         // 设置评论容器的属性及样式
         bindGiscus.setAttribute('id', 'giscus');
         bindGiscus.style.height = 'auto';
         bindGiscus.style.marginTop = '40px';
         bindGiscus.style.borderTop = '1px solid var(--vp-c-divider)';
         bindGiscus.style.paddingTop = '20px';
-        // 芙蓉其尾部添加评论容器
+        // Add comment container
+        // 添加评论容器
         docContent.append(bindGiscus);
+        // Use vue to dynamically create comment components and bind them to the corresponding elements
         // 使用vue动态创建评论组件并绑定到相应元素上
         createApp({
             render: () => {
@@ -65,7 +81,8 @@ const setGiscus = (props: GiscusProps | {} = {}, frontmatter?: Ref<PageData['fro
 };
 
 /**
- * 监听页面主题，更改评论容器的主题
+ * Listen to the page theme and change the theme of the comment container
+ * <br>监听页面主题，更改评论容器的主题
  */
 const setThemeWatch = () => {
     const element: HTMLElement | Node | null = document.querySelector('html');
@@ -83,17 +100,19 @@ const setThemeWatch = () => {
 };
 
 /**
- * 创建评论区
- * @param props giscus配置
- * @param vitepressObj 前言和路由
+ * initialize comment area
+ * <br>初始化评论区
+ * @param props giscus setting (giscus 配置)
+ * @param vitepressObj frontmatter & routing (前言 & 路由)
+ * @param defaultEnable default enable comment area (默认启用评论区)
  */
-const giscusTalk = (props: GiscusProps, vitepressObj: vitepressAPI) => {
+const giscusTalk = (props: GiscusProps, vitepressObj: vitepressAPI, defaultEnable: boolean = true) => {
     onMounted(() => {
-        setGiscus(props, vitepressObj.frontmatter);
+        setGiscus(props, vitepressObj.frontmatter, defaultEnable);
         setThemeWatch();
     });
     watch(() => vitepressObj.route.path, () => nextTick(() => {
-        setGiscus(props, vitepressObj.frontmatter);
+        setGiscus(props, vitepressObj.frontmatter, defaultEnable);
     }));
 };
 

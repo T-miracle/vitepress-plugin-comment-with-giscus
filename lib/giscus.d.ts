@@ -6,9 +6,11 @@ type vitepressAPI = {
     route: Route;
 };
 /**
- * 创建评论区
- * @param props giscus配置
- * @param vitepressObj 前言和路由
+ * initialize comment area
+ * <br>初始化评论区
+ * @param props giscus setting (giscus 配置)
+ * @param vitepressObj frontmatter & routing (前言 & 路由)
+ * @param defaultEnable default enable comment area (默认启用评论区)
  */
-declare const giscusTalk: (props: GiscusProps, vitepressObj: vitepressAPI) => void;
+declare const giscusTalk: (props: GiscusProps, vitepressObj: vitepressAPI, defaultEnable?: boolean) => void;
 export default giscusTalk;
