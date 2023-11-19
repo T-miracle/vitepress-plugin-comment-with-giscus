@@ -4,3 +4,4 @@ node_modules
 dist
 tsconfig.tsbuildinfo*
 package-lock.json
+**/cache

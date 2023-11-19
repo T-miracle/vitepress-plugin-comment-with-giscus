@@ -5,6 +5,9 @@
     "type": "module",
     "main": "./lib/giscus.js",
     "types": "./lib/giscus.d.ts",
+    "scripts": {
+        "run": "vitepress dev docs"
+    },
     "files": [
         "dist",
         "lib"

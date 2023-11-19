@@ -8,6 +8,11 @@ type vitepressAPI = {
     route: Route
 }
 
+interface GiscusPropsType extends GiscusProps {
+    lightTheme?: string,
+    darkTheme?: string
+}
+
 /**
  * add comment container
  * <br>添加评论容器
@@ -15,8 +20,8 @@ type vitepressAPI = {
  * @param frontmatter frontmatter (前言)
  * @param defaultEnable default enable comment area (默认启用评论区)
  */
-const setGiscus = (props: GiscusProps | {} = {}, frontmatter?: Ref<PageData['frontmatter']>, defaultEnable: boolean = true) => {
-    const defaultProps: GiscusProps = {
+const setGiscus = (props: GiscusPropsType, frontmatter?: Ref<PageData['frontmatter']>, defaultEnable: boolean = true) => {
+    const defaultProps: GiscusPropsType = {
         id: 'comment',
         host: 'https://giscus.app',
         category: 'General',
@@ -30,7 +35,7 @@ const setGiscus = (props: GiscusProps | {} = {}, frontmatter?: Ref<PageData['fro
         repoId: ''
     };
     const lightTheme = props.lightTheme || 'light';
-    const darkTheme = props.darktheme || 'transparent_dark';
+    const darkTheme = props.darkTheme || 'transparent_dark';
     // Delete the original comment container
     // 删除原有评论容器
     let oldCommentContainer = document.getElementById('giscus');
@@ -86,10 +91,10 @@ const setGiscus = (props: GiscusProps | {} = {}, frontmatter?: Ref<PageData['fro
  * Listen to the page theme and change the theme of the comment container
  * <br>监听页面主题，更改评论容器的主题
  */
-const setThemeWatch = (props: GiscusProps | {} = {}) => {
+const setThemeWatch = (props: GiscusPropsType) => {
     const element: HTMLElement | Node | null = document.querySelector('html');
     const lightTheme = props.lightTheme || 'light';
-    const darkTheme = props.darktheme || 'transparent_dark';
+    const darkTheme = props.darkTheme || 'transparent_dark';
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             if (mutation.type == 'attributes') {
@@ -110,7 +115,7 @@ const setThemeWatch = (props: GiscusProps | {} = {}) => {
  * @param vitepressObj frontmatter & routing (前言 & 路由)
  * @param defaultEnable default enable comment area (默认启用评论区)
  */
-const giscusTalk = (props: GiscusProps, vitepressObj: vitepressAPI, defaultEnable: boolean = true) => {
+const giscusTalk = (props: GiscusPropsType, vitepressObj: vitepressAPI, defaultEnable: boolean = true) => {
     onMounted(() => {
         setGiscus(props, vitepressObj.frontmatter, defaultEnable);
         setThemeWatch(props);
