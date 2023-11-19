@@ -29,6 +29,8 @@ const setGiscus = (props: GiscusProps | {} = {}, frontmatter?: Ref<PageData['fro
         repo: 'xxx/xxx',
         repoId: ''
     };
+    const lightTheme = props.lightTheme || 'light';
+    const darkTheme = props.darktheme || 'transparent_dark';
     // Delete the original comment container
     // 删除原有评论容器
     let oldCommentContainer = document.getElementById('giscus');
@@ -73,7 +75,7 @@ const setGiscus = (props: GiscusProps | {} = {}, frontmatter?: Ref<PageData['fro
         createApp({
             render: () => {
                 return h(
-                    (giscus as Component), { ...defaultProps, theme: dark ? 'transparent_dark' : 'light', ...props }
+                    (giscus as Component), { ...defaultProps, theme: dark ? darkTheme : lightTheme, ...props }
                 );
             }
         }).mount('#giscus');
@@ -84,13 +86,15 @@ const setGiscus = (props: GiscusProps | {} = {}, frontmatter?: Ref<PageData['fro
  * Listen to the page theme and change the theme of the comment container
  * <br>监听页面主题，更改评论容器的主题
  */
-const setThemeWatch = () => {
+const setThemeWatch = (props: GiscusProps | {} = {}) => {
     const element: HTMLElement | Node | null = document.querySelector('html');
+    const lightTheme = props.lightTheme || 'light';
+    const darkTheme = props.darktheme || 'transparent_dark';
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             if (mutation.type == 'attributes') {
                 let comment: Element | null = document.getElementById('comment');
-                comment?.setAttribute('theme', (element! as HTMLElement).className.indexOf('dark') !== -1 ? 'transparent_dark' : 'light');
+                comment?.setAttribute('theme', (element! as HTMLElement).className.indexOf('dark') !== -1 ? darkTheme : lightTheme);
             }
         });
     });
@@ -109,7 +113,7 @@ const setThemeWatch = () => {
 const giscusTalk = (props: GiscusProps, vitepressObj: vitepressAPI, defaultEnable: boolean = true) => {
     onMounted(() => {
         setGiscus(props, vitepressObj.frontmatter, defaultEnable);
-        setThemeWatch();
+        setThemeWatch(props);
     });
     watch(() => vitepressObj.route.path, () => nextTick(() => {
         setGiscus(props, vitepressObj.frontmatter, defaultEnable);
