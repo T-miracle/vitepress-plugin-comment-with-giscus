@@ -78,6 +78,22 @@ comment: true
 ---
 ```
 
+## 更新日志
+
+<details>
+  <summary>更新日志</summary>
+  <ul>
+    <li>
+      <p>v1.1.10</p>
+      <p>现在可自定义白天/夜间主题</p>
+    </li>
+    <li>
+      <p>v1.1.9</p>
+      <p>现在可以设置是否默认全局启用配置</p>
+    </li>
+  </ul>
+</details>
+
 ## 更多vitepress插件
 
 这些插件你可能会感兴趣：[点我查看更多vitepress插件](https://github.com/T-miracle/vitepress-plugins)

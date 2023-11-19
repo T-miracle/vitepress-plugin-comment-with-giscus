@@ -81,6 +81,22 @@ comment: true
 ---
 ```
 
+## change log
+
+<details>
+  <summary>change log</summary>
+  <ul>
+    <li>
+      <p>v1.1.10</p>
+      <p>Now customizable day/night themes</p>
+    </li>
+    <li>
+      <p>v1.1.9</p>
+      <p>You can now set whether to enable configuration globally by default</p>
+    </li>
+  </ul>
+</details>
+
 ## more vitepress plugins
 
 You may be interested in these plugins：
