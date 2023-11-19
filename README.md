@@ -45,6 +45,8 @@ export default {
             mapping: 'pathname', // default: `pathname`
             inputPosition: 'top', // default: `top`
             lang: 'en', // default: `zh-CN`
+            lightTheme: 'light', // default: `light`
+            darkTheme: 'transparent_dark', // default: `transparent_dark`
             // ...
         }, {
             frontmatter, route
