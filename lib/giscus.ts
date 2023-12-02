@@ -59,7 +59,7 @@ const setGiscus = (props: GiscusPropsType, frontmatter?: Ref<PageData['frontmatt
     if (!location.pathname || location.pathname === '/') {
         return;
     }
-    const isDark = document.querySelector('html')?.className.indexOf('dark') !== -1;
+    const isDark:boolean = document.querySelector('html')?.className.indexOf('dark') !== -1;
     // Get the parent container and create a comment container
     // 获取父容器，并创建评论容器
     const docContent = document.getElementsByClassName('content-container')[0];
