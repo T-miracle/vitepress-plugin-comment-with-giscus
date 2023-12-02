@@ -59,7 +59,7 @@ const setGiscus = (props: GiscusPropsType, frontmatter?: Ref<PageData['frontmatt
     if (!location.pathname || location.pathname === '/') {
         return;
     }
-    const dark: boolean = !!document.querySelector('html')?.className;
+    const isDark:boolean = document.querySelector('html')?.className.indexOf('dark') !== -1;
     // Get the parent container and create a comment container
     // 获取父容器，并创建评论容器
     const docContent = document.getElementsByClassName('content-container')[0];
@@ -80,7 +80,7 @@ const setGiscus = (props: GiscusPropsType, frontmatter?: Ref<PageData['frontmatt
         createApp({
             render: () => {
                 return h(
-                    (giscus as Component), { ...defaultProps, theme: dark ? darkTheme : lightTheme, ...props }
+                    (giscus as Component), { ...defaultProps, theme: isDark ? darkTheme : lightTheme, ...props }
                 );
             }
         }).mount('#giscus');
