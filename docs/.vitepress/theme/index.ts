@@ -17,8 +17,8 @@ export default {
             repoId: 'R_kgDOJCf-FQ',
             categoryId: 'DIC_kwDOJCf-Fc4CUohc',
             mapping: 'pathname',
-            darkTheme: 'dark_dimmed',
-            lightTheme: 'noborder_light'
+            // darkTheme: 'dark_dimmed',
+            // lightTheme: 'noborder_light'
         }, {
             frontmatter, route
         });
