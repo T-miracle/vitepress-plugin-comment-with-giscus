@@ -8,7 +8,7 @@ type vitepressAPI = {
     route: Route
 }
 
-interface GiscusPropsType extends GiscusProps {
+type GiscusPropsType = GiscusProps & {
     lightTheme?: string,
     darkTheme?: string
 }
