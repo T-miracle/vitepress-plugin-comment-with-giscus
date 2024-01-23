@@ -5,10 +5,10 @@ type vitepressAPI = {
     frontmatter: Ref<PageData['frontmatter']>;
     route: Route;
 };
-interface GiscusPropsType extends GiscusProps {
+type GiscusPropsType = GiscusProps & {
     lightTheme?: string;
     darkTheme?: string;
-}
+};
 /**
  * initialize comment area
  * <br>初始化评论区
