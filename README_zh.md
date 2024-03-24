@@ -17,11 +17,14 @@ yarn add vitepress-plugin-comment-with-giscus
 
 ## 用法
 
+在 `.vitepress/theme` 路径下的 `index` 文件里
+
 ```ts
-// .vitepress/theme/index.js
 import DefaultTheme from 'vitepress/theme';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import { useData, useRoute } from 'vitepress';
+import { toRefs } from "vue";
+
 export default {
     ...DefaultTheme,
     enhanceApp(ctx) {
@@ -30,7 +33,7 @@ export default {
     },
     setup() {
         // 获取前言和路由
-        const { frontmatter } = useData();
+        const { frontmatter } = toRefs(useData());
         const route = useRoute();
         
         // 评论组件 - https://giscus.app/

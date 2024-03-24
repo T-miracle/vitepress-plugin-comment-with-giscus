@@ -19,11 +19,13 @@ yarn add vitepress-plugin-comment-with-giscus
 
 ## Usage
 
+In the `index` file under the `.vitepress/theme` path
+
 ```ts
-// .vitepress/theme/index.js
 import DefaultTheme from 'vitepress/theme';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import { useData, useRoute } from 'vitepress';
+import { toRefs } from "vue";
 
 export default {
     ...DefaultTheme,
@@ -33,7 +35,7 @@ export default {
     },
     setup() {
         // Get frontmatter and route
-        const { frontmatter } = useData();
+        const { frontmatter } = toRefs(useData());
         const route = useRoute();
         
         // Obtain configuration from: https://giscus.app/
