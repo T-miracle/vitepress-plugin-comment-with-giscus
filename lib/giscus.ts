@@ -1,4 +1,4 @@
-import giscus from '@giscus/vue';
+import giscus, { AvailableLanguage } from '@giscus/vue';
 import { Component, createApp, h, nextTick, onMounted, Ref, watch } from 'vue';
 import { PageData, Route } from 'vitepress';
 import { GiscusProps } from '@giscus/vue/dist/types';
@@ -10,7 +10,8 @@ type vitepressAPI = {
 
 type GiscusPropsType = GiscusProps & {
     lightTheme?: string,
-    darkTheme?: string
+    darkTheme?: string,
+    lang?: AvailableLanguage
 }
 
 /**

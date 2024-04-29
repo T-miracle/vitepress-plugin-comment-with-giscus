@@ -1,3 +1,4 @@
+import { AvailableLanguage } from '@giscus/vue';
 import { Ref } from 'vue';
 import { PageData, Route } from 'vitepress';
 import { GiscusProps } from '@giscus/vue/dist/types';
@@ -8,6 +9,7 @@ type vitepressAPI = {
 type GiscusPropsType = GiscusProps & {
     lightTheme?: string;
     darkTheme?: string;
+    lang?: AvailableLanguage;
 };
 /**
  * initialize comment area
