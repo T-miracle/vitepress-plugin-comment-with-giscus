@@ -65,6 +65,8 @@ export default {
 
 For the parameter acquisition method of `giscus`, please refer to：[giscus configuration](https://giscus.app/)
 
+[Click to see the list of currently supported languages](https://github.com/giscus/giscus/blob/main/lib/i18n.tsx#L45)
+
 ## Extended
 
 When the configuration option enables the comment area by default, add the following code, the comment area will not be generated

@@ -63,6 +63,8 @@ export default {
 
 `giscus` 的参数获取方式请看：[giscus配置获取](https://giscus.app/)
 
+[点击查看目前支持的语言列表](https://github.com/giscus/giscus/blob/main/lib/i18n.tsx#L45)
+
 ## 扩展使用
 
 当配置选项默认启用评论区时，添加以下代码，则不会生成评论区

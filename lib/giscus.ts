@@ -42,7 +42,6 @@ const setGiscus = (props: GiscusPropsType, frontmatter?: Ref<PageData['frontmatt
     if (oldCommentContainer) {
         oldCommentContainer.parentNode!.removeChild(oldCommentContainer);
     }
-    console.log(frontmatter?.value.comment);
     if (frontmatter?.value.comment !== undefined) {
         // If comment is false, comments are not loaded
         // 如果 comment 为 false，则不加载评论
