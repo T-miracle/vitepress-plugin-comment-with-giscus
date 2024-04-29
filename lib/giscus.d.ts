@@ -10,6 +10,8 @@ type GiscusPropsType = GiscusProps & {
     lightTheme?: string;
     darkTheme?: string;
     lang?: AvailableLanguage;
+    locales?: Record<string, string>;
+    homePageShowComment?: boolean;
 };
 /**
  * initialize comment area

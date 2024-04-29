@@ -47,6 +47,14 @@ export default {
             mapping: 'pathname', // default: `pathname`
             inputPosition: 'top', // default: `top`
             lang: 'en', // default: `zh-CN`
+            // i18n setting (Note: This configuration will override the default language set by lang)
+            // Configured as an object with key-value pairs inside:
+            // [your i18n configuration name]: [corresponds to the language pack name in Giscus]
+            locales: {
+                'zh-Hans': 'zh-CN',
+                'en-US': 'en'
+            },
+            homePageShowComment: false, // Whether to display the comment area on the homepage, the default is false
             lightTheme: 'light', // default: `light`
             darkTheme: 'transparent_dark', // default: `transparent_dark`
             // ...
@@ -87,9 +95,13 @@ comment: true
 
 ## change log
 
-<details>
+<details open>
   <summary>change log</summary>
   <ul>
+    <li>
+      <p>v1.1.15</p>
+      <p>new i18n setting</p>
+    </li>
     <li>
       <p>v1.1.10</p>
       <p>Now customizable day/night themes</p>

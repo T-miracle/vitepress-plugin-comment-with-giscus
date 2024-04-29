@@ -6,7 +6,8 @@
     "main": "./lib/giscus.js",
     "types": "./lib/giscus.d.ts",
     "scripts": {
-        "run": "vitepress dev docs"
+        "run": "vitepress dev docs",
+        "build": "vitepress build docs"
     },
     "files": [
         "dist",

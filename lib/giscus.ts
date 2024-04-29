@@ -11,7 +11,9 @@ type vitepressAPI = {
 type GiscusPropsType = GiscusProps & {
     lightTheme?: string,
     darkTheme?: string,
-    lang?: AvailableLanguage
+    lang?: AvailableLanguage,
+    locales?: Record<string, string>,
+    homePageShowComment?: boolean
 }
 
 /**
@@ -33,8 +35,23 @@ const setGiscus = (props: GiscusPropsType, frontmatter?: Ref<PageData['frontmatt
         lang: 'zh-CN',
         loading: 'lazy',
         repo: 'xxx/xxx',
-        repoId: ''
+        repoId: '',
+        homePageShowComment: false
     };
+
+    // console.log('locales --> ', props.locales);
+
+    // Set the default language
+    // 设置默认语言
+    if (props.locales) {
+        const element: HTMLElement | Node | null = document.querySelector('html');
+        const lang = (element as HTMLElement).getAttribute('lang');
+        // console.log('lang --> ', lang);
+        if (lang && props.locales[lang]) {
+            props.lang = props.locales[lang];
+        }
+    }
+
     const lightTheme = props.lightTheme || 'light';
     const darkTheme = props.darkTheme || 'transparent_dark';
     // Delete the original comment container
@@ -54,9 +71,9 @@ const setGiscus = (props: GiscusPropsType, frontmatter?: Ref<PageData['frontmatt
             return;
         }
     }
-    // If it is the homepage, do not add it
-    // 如果是首页，则不添加
-    if (!location.pathname || location.pathname === '/') {
+    // Whether to display comments on the homepage
+    // 首页是否显示评论
+    if (!props.homePageShowComment &&(!location.pathname || location.pathname === '/')) {
         return;
     }
     const isDark:boolean = document.querySelector('html')?.className.indexOf('dark') !== -1;

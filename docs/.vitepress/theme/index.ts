@@ -17,6 +17,11 @@ export default {
             repoId: 'R_kgDOJCf-FQ',
             categoryId: 'DIC_kwDOJCf-Fc4CUohc',
             mapping: 'pathname',
+            locales: {
+                'zh-Hans': 'zh-CN',
+                'en-US': 'en'
+            },
+            homePageShowComment: true,
             // darkTheme: 'dark_dimmed',
             // lightTheme: 'noborder_light'
         }, {
